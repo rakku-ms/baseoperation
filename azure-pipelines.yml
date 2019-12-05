@@ -16,3 +16,9 @@ steps:
   - task: UseDotNet@2
     inputs:
       version: '3.1.x'
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      command: build
+      projects: '**/*.csproj'
+      arguments: '--configuration Release' # Update this to match your need
