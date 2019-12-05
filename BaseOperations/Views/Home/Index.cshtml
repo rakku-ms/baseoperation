@@ -1,0 +1,205 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@section Styles{
+    <style type>
+        body {
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+
+        p {
+            padding-top: 0px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            margin: 0px 0px 0px 0px;
+        }
+
+        .card {
+            margin: 16px 16px 16px 16px;
+            padding: 8px;
+        }
+
+        #first {
+            margin-left: 60px;
+        }
+
+        tr.border td {
+            border-bottom: 1pt solid black;
+            border-top: 1pt solid black;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script>
+
+        $(document).ready(function () {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+                    labels: ['April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    datasets: [{
+                        label: 'Gate 1',
+                        fill: false,
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: [15, 16, 13, 12, 16, 14, 12, 11, 11]
+                    },
+                    {
+                        label: 'Gate 2',
+                        fill: false,
+                        borderColor: 'rgb(30,144,255)',
+                        data: [10, 10, 5, 2, 20, 21, 24, 20, 21]
+                    },
+
+                    {
+                        label: 'Gate 3',
+                        fill: false,
+                        borderColor: '#4B0082',
+                        data: [8, 14, 19, 14, 7, 8, 12, 8, 8]
+                    }
+                    ]
+                },
+                // Configuration options go here
+                options: {}
+            });
+            var ctx1 = document.getElementById('myChart1').getContext('2d');
+            var chart1 = new Chart(ctx1, {
+                // The type of chart we want to create
+                type: 'bar',
+
+                data: {
+                    labels: ['April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    datasets: [{
+                        label: 'First-Aid Kits',
+                        backgroundColor: 'rgb(30, 144, 255)',
+                        borderColor: 'rgb(30, 144, 255)',
+                        data: [0, 10, 5, 2, 20, 30, 45, 20, 12, 16]
+                    },
+                    {
+                        label: 'Canned Goods',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: [20, 10, 15, 23, 12, 21, 45, 23, 18]
+                    },
+                    ]
+                },
+
+                // Configuration options go here
+                options: {}
+            });
+
+            var ctx2 = document.getElementById('myChart2').getContext('2d');
+            var chart2 = new Chart(ctx2, {
+                // The type of chart we want to create
+                type: 'pie',
+
+                data: {
+                    labels: ["First-Aid Kits", "Canned Goods", "Water Bottles", "Backpacks"],
+                    datasets: [{
+                        label: "Population (millions)",
+                        backgroundColor: ["#1E90FF", "#FF6384", "#4B0082", "#D2691E"],
+                        data: [2478, 5267, 734, 784]
+                    }
+                    ]
+                },
+                // Configuration options go here
+                options: {}
+            });
+        });
+
+    </script>
+}
+<div class="row">
+    <div class="col s12">
+
+    </div>
+    <div class="col s12 m5 l4" style="background-color:#D6DBDF">
+        <!-- <h5 style="color: black"><b><center>Security</center></b></h5>-->
+        <p style="padding-top: 16px"><font size="4"><b><center> GATE SECURITY</center></b></font></p>
+        <p><i><center>Last updated: 11.12.19</center></i></p>
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Vehicles Entered Monthly<small>Chart.js</small></span>
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Last Picture Taken at Gate1<small>Chart.js</small></span>
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m5 l4" style="background-color:#D6DBDF" id="first">
+        <p style="padding-top: 16px"><font size="4"><b><center>SUPPLIES MANAGEMENT</center></b></font></p>
+        <p><i><center>Last updated: 11.12.19</center></i></p>
+        <div class="card">
+            <div class="card-content">
+                <a class="waves-effect waves-light btn indigo m-b-xs" style="float: right;" href="charts.html">Track Supplies</a>
+                <span class="card-title">Supplies Ordered Monthly</span>
+                <div>
+                    <canvas id="myChart1"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Supplies Used Last Month<small>Chart.js</small></span>
+                <div>
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m5 l3" style="background-color:#D6DBDF" id="first">
+        <p style="padding-top: 16px"><font size="4"><b><center>BASE STATUS</center></b></font></p>
+        <table class="responsive-table bordered">
+            <tbody>
+                <tr class="border">
+                    <td style="text-align:center;" valign="center">Person in Charge</td>
+                    <td><b>John Doe</b></td>
+                </tr>
+                <tr class="border">
+                    <td style="text-align:center;" valign="center">
+                        <ul>
+                            <li>Connection to Azure Stack Hub 1</li>
+                            <li>Connection to Azure Stack Hub 2</li>
+                            <li>Connection to Azure Stack Hub 3</li>
+                        </ul>
+                    </td>
+                    <td style="color:#00ab00">
+                        <ul>
+                            <li>Live</li>
+                            <li>Live</li>
+                            <li>Live</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="border">
+                    <td style="text-align:center;" valign="center">Inventory</td>
+                    <td>
+                        <ul>
+                            <li> <font style="color:#b30000">Low</font> - Backpacks</li>
+                            <li><font style="color:#00ab00">In Stock </font>- Canned Goods </li>
+                            <li><font style="color:#00ab00">In Stock </font>- First Aid Kits </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="border">
+                    <td style="text-align:center;" valign="center">Gate Security Check</td>
+                    <td><font style="color:#00ab00">Passed</font></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

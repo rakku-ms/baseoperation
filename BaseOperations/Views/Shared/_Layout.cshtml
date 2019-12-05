@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Responsive Admin Dashboard Template" />
+    <meta name="keywords" content="admin,dashboard" />
+    <meta name="author" content="Steelcoders" />
+    <title>Base Operations</title>
+    <link type="text/css" rel="stylesheet" href="~/plugins/materialize/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
+    <link href="~/plugins/nvd3/nv.d3.min.css" rel="stylesheet">
+    <!-- Theme Styles -->
+    <link href="~/css/alpha.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/custom.css" rel="stylesheet" type="text/css" />
+
+   @RenderSection("Styles", required:false)
+</head>
+<body>
+    <div class="loader-bg"></div>
+    <div class="loader">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <div class="spinner-layer spinner-spinner-teal lighten-1">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mn-content fixed-sidebar">
+        @*<header>
+                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                    <div class="container">
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BaseOperations</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>*@
+        <header class="mn-header navbar-fixed">
+            <nav class="cyan darken-1">
+                <div class="nav-wrapper row">
+                    <section class="material-design-hamburger navigation-toggle">
+                        <a href="#" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">
+                            <span class="material-design-hamburger__layer"></span>
+                        </a>
+                    </section>
+                    <div class="header-title col s3">
+                        <span class="chapter-title">Alpha</span>
+                    </div>
+                    <form class="left search col s6 hide-on-small-and-down">
+                        <div class="input-field">
+                            <input id="search" type="search" placeholder="Search" autocomplete="off">
+                            <label for="search"><i class="material-icons search-icon">search</i></label>
+                        </div>
+                        <a href="javascript: void(0)" class="close-search"><i class="material-icons">close</i></a>
+                    </form>
+                    <ul class="right col s9 m3 nav-right-menu">
+                        <li><a href="javascript:void(0)" data-activates="chat-sidebar" class="chat-button show-on-large"><i class="material-icons">more_vert</i></a></li>
+                        <li class="hide-on-small-and-down"><a href="javascript:void(0)" data-activates="dropdown1" class="dropdown-button dropdown-right show-on-large"><i class="material-icons">notifications_none</i><span class="badge">4</span></a></li>
+                        <li class="hide-on-med-and-up"><a href="javascript:void(0)" class="search-toggle"><i class="material-icons">search</i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside id="slide-out" class="side-nav white fixed">
+            <div class="side-nav-wrapper">
+                <div class="sidebar-profile">
+                    <div class="sidebar-profile-image">
+                        <img src="~/images/profile-image.png" class="circle" alt="">
+                    </div>
+                    <div class="sidebar-profile-info">
+                        <p>David Doe</p>
+                    </div>
+                    <p>david@gmail.com</p>
+                </div>
+
+                <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
+                    <li class="no-padding active"><a class="waves-effect waves-grey active" asp-area="" asp-controller="Home" asp-action="Index"><i class="material-icons">settings_input_svideo</i>Dashboard</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" asp-area="" asp-controller="SupplyManagement" asp-action="Index"><i class="material-icons">trending_up</i>Supplies Management</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey" asp-area="" asp-controller="PerimeterSecurity" asp-action="Index"><i class="material-icons">star_border</i>Gate Security</a></li>
+                </ul>
+                <div class="footer">
+                    <p class="copyright">Steelcoders ©</p>
+                    <a href="#!">Privacy</a> &amp; <a href="#!">Terms</a>
+                </div>
+            </div>
+        </aside>
+        <main class="mn-inner">
+            @RenderBody()
+        </main>
+    </div>
+    <div id="chartjs-tooltip"></div>
+    <div class="left-sidebar-hover"></div>
+    <script src="~/plugins/jquery/jquery-2.2.0.min.js"></script>
+    <script src="~/plugins/materialize/js/materialize.min.js"></script>
+    <script src="~/plugins/material-preloader/js/materialPreloader.min.js"></script>
+    <script src="~/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="~/plugins/chart.js/chart.min.js"></script>
+    <script src="~/plugins/d3/d3.min.js"></script>
+    <script src="~/plugins/nvd3/nv.d3.min.js"></script>
+    <script src="~/plugins/flot/jquery.flot.min.js"></script>
+    <script src="~/plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="~/plugins/flot/jquery.flot.symbol.min.js"></script>
+    <script src="~/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="~/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="~/plugins/flot/jquery.flot.pie.min.js"></script>
+    <script src="~/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/js/alpha.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
