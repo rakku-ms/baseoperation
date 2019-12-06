@@ -12,5 +12,9 @@ namespace BaseOperations.Controllers
         {
             return View();
         }
+        public IActionResult AddShipment()
+        {
+            return View();
+        }
     }
 }

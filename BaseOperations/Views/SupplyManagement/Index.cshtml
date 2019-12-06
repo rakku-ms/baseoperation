@@ -1,11 +1,11 @@
 ﻿
 @section Styles{
     <style>
-        body {
-            font-family: "Trebuchet MS", Helvetica, sans-serif;
-        }
+        /*body {
+            font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+        }*/
 
-        .center {
+        /*.center {
             display: block;
             margin-left: auto;
             margin-right: auto;
@@ -32,11 +32,11 @@
             content: "";
             display: table;
             clear: both;
-        }
+        }*/
 
 
         /* The Modal (background) */
-        .modal {
+        /*.modal {
             display: none;
             position: fixed;
             z-index: 1;
@@ -47,29 +47,29 @@
             height: 50%;
             overflow: auto;
             background-color: white;
-        }
+        }*/
 
         /* Modal Content */
-        .modal-content {
+        /*.modal-content {
             position: relative;
             background-color: #fefefe;
             margin: auto;
             padding: 0;
             width: 90%;
             max-width: 800px;
-        }
+        }*/
 
         /* The Close Button */
-        .close {
+        /*.close {
             color: grey;
             position: absolute;
             top: 65px;
             right: 25px;
             font-size: 35px;
             font-weight: bold;
-        }
+        }*/
 
-            .close:hover,
+            /*.close:hover,
             .close:focus {
                 color: #999;
                 text-decoration: none;
@@ -82,10 +82,10 @@
 
         .cursor {
             cursor: pointer;
-        }
+        }*/
 
         /* Next & previous buttons */
-        .prev,
+        /*.prev,
         .next {
             cursor: pointer;
             position: absolute;
@@ -100,30 +100,30 @@
             border-radius: 0 3px 3px 0;
             user-select: none;
             -webkit-user-select: none;
-        }
+        }*/
 
         /* Position the "next button" to the right */
-        .next {
+        /*.next {
             right: 0;
             border-radius: 3px 0 0 3px;
-        }
+        }*/
 
             /* On hover, add a black background color with a little bit see-through */
-            .prev:hover,
+            /*.prev:hover,
             .next:hover {
                 background-color: rgba(0, 0, 0, 0.8);
-            }
+            }*/
 
         /* Number text (1/3 etc) */
-        .numbertext {
+        /*.numbertext {
             color: grey;
             font-size: 12px;
             padding: 8px 12px;
             position: absolute;
             top: 0;
-        }
+        }*/
 
-        img {
+        /*img {
             margin-bottom: -4px;
         }
 
@@ -149,7 +149,7 @@
 
         .hover-shadow:hover {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
+        }*/
     </style>
 }
 @section Scripts{
@@ -159,115 +159,113 @@
     <script src="~/plugins/curvedlines/curvedLines.js"></script>
     <script src="~/plugins/peity/jquery.peity.min.js"></script>
     <script src="~/js/pages/dashboard.js"></script>   
+    <script src="~/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/pages/table-data.js"></script>
 }
-<div class="row no-m-t no-m-b">
-    <div class="col s12 m12 l8">
-        <div class="card invoices-card">
-            <div class="card-content">
-
-
-                <span class="card-title">Requisitions and Invoices</span>
-                <div style="height:0px;overflow:hidden">
-                    <input type="file" id="fileInput" name="fileInput" />
-                </div>
-                <a class="waves-effect waves-light btn indigo m-b-xs" style="float: right;" role="button" onclick="chooseFile();">Upload New Form</a>
-                <script>
-                    function chooseFile() {
-                        $("#fileInput").click();
-                    }
-                </script>
-
-                <table class="responsive-table bordered">
-                    <thead>
-                        <tr>
-                            <th data-field="id">Date</th>
-                            <th data-field="number">Item Number</th>
-                            <th data-field="date">Federal Stock Description</th>
-                            <th data-field="company">Quantity</th>
-                            <th data-field="total">Unit Cost</th>
-                            <th data-field="total">Total Cost</th>
-                            <th data-field="total">Picture of Form</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>12/10/19</td>
-                            <td>45</td>
-                            <td>Canned foods- Beans</td>
-                            <td>10</td>
-                            <td>$2</td>
-                            <td>$20</td>
-                            <td>
-                                <div class="row">
-                                    <div class="column">
-                                        <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="50" height="50" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-
-                                        <div id="myModal" class="modal">
-                                            <span class="close cursor" onclick="closeModal()">&times;</span>
-                                            <div class="modal-content">
-
-                                                <div class="mySlides">
-                                                    <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="250" height="250" class="center">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <script>
-                    function openModal() {
-                        document.getElementById("myModal").style.display = "block";
-                    }
-
-                    function closeModal() {
-                        document.getElementById("myModal").style.display = "none";
-                    }
-
-                    var slideIndex = 1;
-                    showSlides(slideIndex);
-
-                    function plusSlides(n) {
-                        showSlides(slideIndex += n);
-                    }
-
-                    function currentSlide(n) {
-                        showSlides(slideIndex = n);
-                    }
-
-                    function showSlides(n) {
-                        var i;
-                        var slides = document.getElementsByClassName("mySlides");
-                        var dots = document.getElementsByClassName("demo");
-                        var captionText = document.getElementById("caption");
-                        if (n > slides.length) { slideIndex = 1 }
-                        if (n < 1) { slideIndex = slides.length }
-                        for (i = 0; i < slides.length; i++) {
-                            slides[i].style.display = "none";
-                        }
-                        for (i = 0; i < dots.length; i++) {
-                            dots[i].className = dots[i].className.replace(" active", "");
-                        }
-                        slides[slideIndex - 1].style.display = "block";
-                        dots[slideIndex - 1].className += " active";
-                        captionText.innerHTML = dots[slideIndex - 1].alt;
-                    }
-                </script>
-            </div>
+<main class="mn-inner">
+    <div class="row">
+        <div class="col s12">
+            <div class="page-title">Supply Management</div>
         </div>
-        <div class="col s12 m12 l6">
+        <div class="col s12 m12 l12">
             <div class="card">
                 <div class="card-content">
-                    <span class="card-title">Form Pre-Processing</span>
-                    <img src="https://cmsimages-alt.kbb.com/content/dam/kbb-editorial/make/porsche/macan/2019/oem/06-2019-porsche-macan-oem.jpg" width="275" height="200" class="center">
+                    <span class="card-title">Shipment Processing<a style="float:right;right:40px;" asp-area="" asp-controller="SupplyManagement" asp-action="AddShipment" class="waves-effect waves-light btn indigo m-b-xs">ADD NEW SHIPMENT</a></span>
+                    <!--<p>DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code></p><br>-->
+                    <div id="example_wrapper" class="dataTables_wrapper">
+                        <div class="dataTables_length" id="example_length"><label>Show <select name="example_length" aria-controls="example" class="browser-default"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label></div><div id="example_filter" class="dataTables_filter"><label><input type="search" class="" placeholder="Search records" aria-controls="example"></label></div><table id="example" class="display responsive-table datatable-example dataTable" role="grid" aria-describedby="example_info">
+                            <thead>
+                                <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 227px;">Shipment ID</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 358px;">Position</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 171px;">Office</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 54px;">Age</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 146px;">Start date</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 138px;">Salary</th></tr>
+                            </thead>
+                            <tfoot>
+                                <tr><th rowspan="1" colspan="1">Shipment ID</th><th rowspan="1" colspan="1">Origin</th><th rowspan="1" colspan="1">Arrival Date</th><th rowspan="1" colspan="1">Location</th><th rowspan="1" colspan="1">Voucher Number</th><th rowspan="1" colspan="1">Receiving Personnel</th></tr>
+                            </tfoot>
+                            <tbody>
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1">Airi Satou</td>
+                                    <td>Accountant</td>
+                                    <td>Tokyo</td>
+                                    <td>33</td>
+                                    <td>2008/11/28</td>
+                                    <td>$162,700</td>
+                                </tr>
+                                <tr role="row" class="even">
+                                    <td class="sorting_1">Angelica Ramos</td>
+                                    <td>Chief Executive Officer (CEO)</td>
+                                    <td>London</td>
+                                    <td>47</td>
+                                    <td>2009/10/09</td>
+                                    <td>$1,200,000</td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1">Ashton Cox</td>
+                                    <td>Junior Technical Author</td>
+                                    <td>San Francisco</td>
+                                    <td>66</td>
+                                    <td>2009/01/12</td>
+                                    <td>$86,000</td>
+                                </tr>
+                                <tr role="row" class="even">
+                                    <td class="sorting_1">Bradley Greer</td>
+                                    <td>Software Engineer</td>
+                                    <td>London</td>
+                                    <td>41</td>
+                                    <td>2012/10/13</td>
+                                    <td>$132,000</td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1">Brenden Wagner</td>
+                                    <td>Software Engineer</td>
+                                    <td>San Francisco</td>
+                                    <td>28</td>
+                                    <td>2011/06/07</td>
+                                    <td>$206,850</td>
+                                </tr>
+                                <tr role="row" class="even">
+                                    <td class="sorting_1">Brielle Williamson</td>
+                                    <td>Integration Specialist</td>
+                                    <td>New York</td>
+                                    <td>61</td>
+                                    <td>2012/12/02</td>
+                                    <td>$372,000</td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1">Bruno Nash</td>
+                                    <td>Software Engineer</td>
+                                    <td>London</td>
+                                    <td>38</td>
+                                    <td>2011/05/03</td>
+                                    <td>$163,500</td>
+                                </tr>
+                                <tr role="row" class="even">
+                                    <td class="sorting_1">Caesar Vance</td>
+                                    <td>Pre-Sales Support</td>
+                                    <td>New York</td>
+                                    <td>21</td>
+                                    <td>2011/12/12</td>
+                                    <td>$106,450</td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1">Cara Stevens</td>
+                                    <td>Sales Assistant</td>
+                                    <td>New York</td>
+                                    <td>46</td>
+                                    <td>2011/12/06</td>
+                                    <td>$145,600</td>
+                                </tr>
+                                <tr role="row" class="even">
+                                    <td class="sorting_1">Cedric Kelly</td>
+                                    <td>Senior Javascript Developer</td>
+                                    <td>Edinburgh</td>
+                                    <td>22</td>
+                                    <td>2012/03/29</td>
+                                    <td>$433,060</td>
+                                </tr>
+                            </tbody>
+                        </table><div class="dataTables_info" id="example_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div><div class="dataTables_paginate paging_simple_numbers" id="example_paginate"><a class="paginate_button previous disabled" aria-controls="example" data-dt-idx="0" tabindex="0" id="example_previous"><i class="material-icons">chevron_left</i></a><span><a class="paginate_button current" aria-controls="example" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="example" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="example" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="example" data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="example" data-dt-idx="5" tabindex="0">5</a><a class="paginate_button " aria-controls="example" data-dt-idx="6" tabindex="0">6</a></span><a class="paginate_button next" aria-controls="example" data-dt-idx="7" tabindex="0" id="example_next"><i class="material-icons">chevron_right</i></a></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col s12 m12 l6">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Form Post-Processing</span>
-                    <img src="https://cmsimages-alt.kbb.com/content/dam/kbb-editorial/make/porsche/macan/2019/oem/06-2019-porsche-macan-oem.jpg" width="275" height="200" class="center">
-                </div>
-            </div>
+    </div>
+</main>

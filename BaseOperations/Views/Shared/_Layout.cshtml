@@ -10,7 +10,7 @@
     <title>Base Operations</title>
     <link type="text/css" rel="stylesheet" href="~/plugins/materialize/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="~/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">
+    @*<link href="~/plugins/material-preloader/css/materialPreloader.min.css" rel="stylesheet">*@
     <link href="~/plugins/nvd3/nv.d3.min.css" rel="stylesheet">
     <!-- Theme Styles -->
     <link href="~/css/alpha.min.css" rel="stylesheet" type="text/css" />
@@ -31,7 +31,7 @@
                     <div class="circle"></div>
                 </div>
             </div>
-            <div class="spinner-layer spinner-spinner-teal lighten-1">
+            @*<div class="spinner-layer spinner-spinner-teal lighten-1">
                 <div class="circle-clipper left">
                     <div class="circle"></div>
                 </div><div class="gap-patch">
@@ -57,7 +57,7 @@
                 </div><div class="circle-clipper right">
                     <div class="circle"></div>
                 </div>
-            </div>
+            </div>*@
         </div>
     </div>
     <div class="mn-content fixed-sidebar">
@@ -83,7 +83,7 @@
                 </nav>
             </header>*@
         <header class="mn-header navbar-fixed">
-            <nav class="cyan darken-1">
+            <nav class="blue-grey darken-1">
                 <div class="nav-wrapper row">
                     <section class="material-design-hamburger navigation-toggle">
                         <a href="#" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">
@@ -91,7 +91,7 @@
                         </a>
                     </section>
                     <div class="header-title col s3">
-                        <span class="chapter-title">Alpha</span>
+                        <span class="chapter-title">Base Operations</span>
                     </div>
                     <form class="left search col s6 hide-on-small-and-down">
                         <div class="input-field">
@@ -117,7 +117,7 @@
                     <div class="sidebar-profile-info">
                         <p>David Doe</p>
                     </div>
-                    <p>david@gmail.com</p>
+                    <p>Current User</p>
                 </div>
 
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
@@ -131,9 +131,7 @@
                 </div>
             </div>
         </aside>
-        <main class="mn-inner">
             @RenderBody()
-        </main>
     </div>
     <div id="chartjs-tooltip"></div>
     <div class="left-sidebar-hover"></div>
