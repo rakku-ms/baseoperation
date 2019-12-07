@@ -1,0 +1,72 @@
+﻿@model IEnumerable<BaseOperations.Models.Shipment>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Recipient
+            </th>
+            <th>
+                Recipient Zip Code
+            </th>
+            <th>
+                Sender
+            </th>
+            <th>
+                Sender Zip Code
+            </th>
+            <th>
+                PO Number
+            </th>
+            <th>
+                Payment ID
+            </th>
+            <th>
+                Date Received
+            </th>
+            <th>
+                Bill of Lading
+            </th>
+            <th>
+                Order Day
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Recipient
+            </td>
+            <td>
+                @item.RecipientZip
+            </td>
+            <td>
+                @item.Sender
+            </td>
+            <td>
+                @item.SenderZip
+            </td>
+            <td>
+                @item.PONumber
+            </td>
+            <td>
+                @item.PaymentID
+            </td>
+            <td>
+                @item.DateReceived
+            </td>
+            <td>
+                @item.BillOfLading
+            </td>
+            <td>
+                @item.TimeAdded
+            </td>
+            <td>
+                <a href="@item.PDFUrl" class="waves-effect waves-light btn blue m-b-xs">View PDF</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

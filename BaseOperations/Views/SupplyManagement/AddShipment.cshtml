@@ -7,6 +7,14 @@
     <script src="~/js/pages/dashboard.js"></script>
     <script src="~/plugins/datatables/js/jquery.dataTables.min.js"></script>
     <script src="~/js/pages/table-data.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#upload').click(function () {
+                $('pdfpane').attr('style', 'display: block');
+                $('textpane').attr('style', 'display: block');
+            });
+        });
+    </script>
 }
 
 <main class="mn-inner">
@@ -30,7 +38,7 @@
                             </div>
                         </div>
                     </form>
-                    <a class="waves-effect waves-light btn">Upload</a>
+                    <a id="upload" class="waves-effect waves-light btn">Upload</a>
                 </div>
             </div>
         </div>
@@ -38,7 +46,7 @@
             <div class="card">
                 <div class="card-content">
                     <span class="card-title">Original PDF</span>
-                    <embed src="~/pdfs/dd1149.pdf" height="400" style="width:100%" />
+                    <embed id="pdfpane" src="https://baseopsstorage.blob.core.windows.net/pdfs/catering.pdf" height="400" style="width:100%;" />
                 </div>
             </div>
         </div>
@@ -46,171 +54,37 @@
             <div class="card">
                 <div class="card-content">
                     <span class="card-title">Extracted Data</span>
-                    <div style="overflow-y:scroll;height:334px;">
+                    <div id="textpane" style="overflow-y:scroll;height:334px;">
                         <div id="form-recognizer-preview">
-                            <p>------------------------------</p>
-                            <p><strong>Key-value pairs</strong></p>
-                            <p>------------------------------</p>
                             <p>
-                                <span>Bill To:</span>
-                                <span>Contoso, Ltd</span>
+                                ----------Key Value Pairs------<br />
+                                SALESPERSON: Sullivan<br />
+                                P.O. NUMBER : 897423<br />
+                                PAYMENT ID: F41G94JX3N<br />
+                                BILL OF LADING: 39MOD33DFE<br />
+                                TERMS: Due on receipt <br />
+                                ---------------------------------------<br />
+                                ---------Tables---------------<br />
+                                table 0:
                             </p>
+
                             <p>
-                                <span>Phone:</span>
-                                <span>432-555-0189</span>
+                                QUANTITY, DESCRIPTION, UNIT PRICE, TOTAL <br />
+                                1,12 LB Turkey,25.00,25.00<br />
+                                1,1 LB Green Beans,2.50,2.50<br />
+                                1,Box Stuffing,3.00,3.00<br />
+                                1,10 oz Cranberry Sauce,1.50,1.50<br />
+                                2,1 LB Cooked Mashed Potatoes,6.50,13.00<br />
+                                2,1 Dozen Rolls,4.00,8.00<br />
+                                3,Pumpkin Pie,9.50,28.50
                             </p>
+
                             <p>
-                                <span>Invoice #:</span>
-                                <span>3-456-2</span>
-                            </p>
-                            <p>
-                                <span>Fax:</span>
-                                <span>432-555-0123</span>
-                            </p>
-                            <p>
-                                <span>Invoice Date:</span>
-                                <span>4/14/2019</span>
-                            </p>
-                            <p>
-                                <span>Email:</span>
-                                <span>contoso@example.com</span>
-                            </p>
-                            <p>
-                                <span>Invoice For:</span>
-                                <span>Project 2</span>
-                            </p>
-                            <p>
-                                <span>Invoice Subtotal:</span>
-                                <span>2,014.00</span>
-                            </p>
-                            <p>
-                                <span>Tax Rate:</span>
-                                <span>8.75%</span>
-                            </p>
-                            <p>
-                                <span>Sales Tax:</span>
-                                <span>176.23</span>
-                            </p>
-                            <p>
-                                <span>Other:</span>
-                                <span>0</span>
-                            </p>
-                            <p>
-                                <span>Terms:</span>
-                                <span>Total due in 90 days. Overdue accounts subject to a service charge of 3% per month.</span>
-                            </p>
-                            <p>
-                                <span>TOTAL:</span>
-                                <span>2,190.23</span>
-                            </p>
-                            <p>------------</p>
-                            <p><strong>Tables</strong></p>
-                            <p>------------</p>
-                            <p>table_0:</p>
-                            <p>
-                                <span>Item #:</span>
-                                <span>Z4567,</span>
-                                <span>Z4568,</span>
-                                <span>Z4569,</span>
-                                <span>Z4570,</span>
-                                <span>Z4571,</span>
-                                <span>Z4572,</span>
-                                <span>Z4573,</span>
-                                <span>Z4574,</span>
-                                <span>Z4575,</span>
-                                <span>Z4576,</span>
-                                <span>Z4577,</span>
-                                <span>Z4578</span>
-                            </p>
-                            <p>
-                                <span>Description:</span>
-                                <span>Invoice 3-456-2 Data 1,</span>
-                                <span>Invoice 3-456-2 Data 2,</span>
-                                <span>Invoice 3-456-2 Data 3,</span>
-                                <span>Invoice 3-456-2 Data 4,</span>
-                                <span>Invoice 3-456-2 Data 5,</span>
-                                <span>Invoice 3-456-2 Data 6,</span>
-                                <span>Invoice 3-456-2 Data 7,</span>
-                                <span>Invoice 3-456-2 Data 8,</span>
-                                <span>Invoice 3-456-2 Data 9,</span>
-                                <span>Invoice 3-456-2 Data 10,</span>
-                                <span>Invoice 3-456-2 Data 11,</span>
-                                <span>Invoice 3-456-2 Data 12</span>
-                            </p>
-                            <p>
-                                <span>Qty:</span>
-                                <span>39,</span>
-                                <span>40,</span>
-                                <span>30,</span>
-                                <span>40,</span>
-                                <span>10,</span>
-                                <span>5,</span>
-                                <span>70,</span>
-                                <span>25,</span>
-                                <span>5,</span>
-                                <span>80,</span>
-                                <span>65,</span>
-                                <span>44</span>
-                            </p>
-                            <p>
-                                <span>Unit Price:</span>
-                                <span>5,</span>
-                                <span>.00,</span>
-                                <span>4,</span>
-                                <span>.00,</span>
-                                <span>6,</span>
-                                <span>.00,</span>
-                                <span>7,</span>
-                                <span>.00,</span>
-                                <span>4,</span>
-                                <span>.00,</span>
-                                <span>8,</span>
-                                <span>.00,</span>
-                                <span>6,</span>
-                                <span>.00,</span>
-                                <span>4,</span>
-                                <span>.00,</span>
-                                <span>7,</span>
-                                <span>.00,</span>
-                                <span>1,</span>
-                                <span>.00,</span>
-                                <span>7,</span>
-                                <span>.00,</span>
-                                <span>1</span>
-                                <span>.00</span>
-                            </p>
-                            <p>
-                                <span>Discount:</span>
-                                <span>__emptycell__,</span>
-                                <span>5,</span>
-                                <span>.00,</span>
-                                <span>7,</span>
-                                <span>.00,</span>
-                                <span>__emptycell__,</span>
-                                <span>__emptycell__,</span>
-                                <span>__emptycell__,</span>
-                                <span>__emptycell__,</span>
-                                <span>__emptycell__,</span>
-                                <span>3,</span>
-                                <span>.00,</span>
-                                <span>__emptycell__,</span>
-                                <span>__emptycell__,</span>
-                                <span>__emptycell__</span>
-                            </p>
-                            <p>
-                                <span>Price:</span>
-                                <span>195.00,</span>
-                                <span>155.00,</span>
-                                <span>173.00,</span>
-                                <span>280.00,</span>
-                                <span>40.00,</span>
-                                <span>40.00,</span>
-                                <span>420.00,</span>
-                                <span>100.00,</span>
-                                <span>32.00,</span>
-                                <span>80.00,</span>
-                                <span>455.00,</span>
-                                <span>44.00</span>
+                                table 1:<br />
+                                SUBTOTAL: 81.50<br />
+                                SALES TAX: 8.15<br />
+                                SHIPPING &amp; HANDLING: 19.99<br />
+                                TOTAL DUE: $109.64<br />
                             </p>
                         </div>
                     </div>

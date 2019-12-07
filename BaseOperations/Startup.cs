@@ -10,6 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.Web.BrowserLink;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
+using BaseOperations.Data;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.EntityFrameworkCore;
 
 namespace BaseOperations
 {
@@ -25,7 +28,11 @@ namespace BaseOperations
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+            services.AddDbContext<BaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BaseContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

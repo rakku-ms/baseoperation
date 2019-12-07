@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BaseOperations.Models.Event>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Timestamp
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                Object Present
+            </th>
+            <th>Gate Location
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Timestamp
+            </td>
+            <td>
+                <img src="@item.ImageURL" width="300"/>
+            </td>
+            <td>
+                @if (item.ContainsTruck ?? false)
+                {
+                <span style="font-size:48px; color: red;"><i class="fas fa-check-square"></i></span>
+                }
+                else
+                {
+            <i class="fas fa-times-circle red"></i>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
