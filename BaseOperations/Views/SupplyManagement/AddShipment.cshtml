@@ -4,14 +4,38 @@
     <script src="~/plugins/chart.js/chart.min.js"></script>
     <script src="~/plugins/curvedlines/curvedLines.js"></script>
     <script src="~/plugins/peity/jquery.peity.min.js"></script>
-    <script src="~/js/pages/dashboard.js"></script>
+    @*<script src="~/js/pages/dashboard.js"></script>*@
     <script src="~/plugins/datatables/js/jquery.dataTables.min.js"></script>
     <script src="~/js/pages/table-data.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#upload').click(function () {
-                $('pdfpane').attr('style', 'display: block');
-                $('textpane').attr('style', 'display: block');
+            $('#upload').unbind("click").click(function () {
+                //$('#pdfcard').attr('style', 'display: block;');
+                //$('#datacard').attr('style', 'display: block;');
+                 // Get the files
+            var file1 = $("#uploadpdf").get(0).files;
+
+              var formData = new FormData();
+              formData.append("upfile", file1[0]);
+
+          // You can abort the upload by calling jqxhr.abort();    
+          $.ajax({
+              url: "../SupplyManagement/UploadFile",
+              type: "POST",
+              contentType: false,
+              data: formData,
+              processData: false,
+              dataType: "html",
+              success: function (response) {
+                  $('#formresponse').html(response);
+              },
+              failure: function (response) {
+                    alert(response.responseText);
+              },
+              error: function (response) {
+                   alert(response.responseText);
+              }
+            });
             });
         });
     </script>
@@ -27,74 +51,23 @@
                 <div class="card-content">
                     <span class="card-title">Upload PDF</span>
                     <p>Select a shipment registration form to be uploaded.</p>
-                    <form action="#" class="p-v-xs">
+                    <form id="uploadform" action="/SupplyManagement/UploadFile" enctype="multipart/form-data" method="post" class="p-v-xs">
                         <div class="file-field input-field">
                             <div class="btn teal lighten-1">
                                 <span>File</span>
-                                <input type="file" multiple="">
+                                <input manifest id="uploadpdf" type="file">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text" placeholder="Upload one or more files">
                             </div>
                         </div>
                     </form>
-                    <a id="upload" class="waves-effect waves-light btn">Upload</a>
+                    <button id="upload" class="waves-effect waves-light btn">Upload</button>
                 </div>
             </div>
         </div>
-        <div class="col s6 m6 l6">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Original PDF</span>
-                    <embed id="pdfpane" src="https://baseopsstorage.blob.core.windows.net/pdfs/catering.pdf" height="400" style="width:100%;" />
-                </div>
-            </div>
-        </div>
-        <div class="col s6 m6 l6">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Extracted Data</span>
-                    <div id="textpane" style="overflow-y:scroll;height:334px;">
-                        <div id="form-recognizer-preview">
-                            <p>
-                                ----------Key Value Pairs------<br />
-                                SALESPERSON: Sullivan<br />
-                                P.O. NUMBER : 897423<br />
-                                PAYMENT ID: F41G94JX3N<br />
-                                BILL OF LADING: 39MOD33DFE<br />
-                                TERMS: Due on receipt <br />
-                                ---------------------------------------<br />
-                                ---------Tables---------------<br />
-                                table 0:
-                            </p>
+        <div id="formresponse">
 
-                            <p>
-                                QUANTITY, DESCRIPTION, UNIT PRICE, TOTAL <br />
-                                1,12 LB Turkey,25.00,25.00<br />
-                                1,1 LB Green Beans,2.50,2.50<br />
-                                1,Box Stuffing,3.00,3.00<br />
-                                1,10 oz Cranberry Sauce,1.50,1.50<br />
-                                2,1 LB Cooked Mashed Potatoes,6.50,13.00<br />
-                                2,1 Dozen Rolls,4.00,8.00<br />
-                                3,Pumpkin Pie,9.50,28.50
-                            </p>
-
-                            <p>
-                                table 1:<br />
-                                SUBTOTAL: 81.50<br />
-                                SALES TAX: 8.15<br />
-                                SHIPPING &amp; HANDLING: 19.99<br />
-                                TOTAL DUE: $109.64<br />
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card-action">
-                    <a asp-area="" asp-controller="SupplyManagement" asp-action="Index" class="waves-effect waves-light btn green">Import Data</a>
-                    <a asp-area="" asp-controller="SupplyManagement" asp-action="Index" style="left:20px;" class="waves-effect waves-light btn red">Cancel</a>
-                </div>
-            </div>
         </div>
     </div>
 </main>

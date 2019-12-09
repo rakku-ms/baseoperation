@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<BaseOperations.Models.Event>
 
-<table class="table">
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -29,11 +29,11 @@
             <td>
                 @if (item.ContainsTruck ?? false)
                 {
-                <span style="font-size:48px; color: red;"><i class="fas fa-check-square"></i></span>
+                <span style="font-size:48px; color: green;"><i class="fas fa-check-square"></i></span>
                 }
                 else
                 {
-            <i class="fas fa-times-circle red"></i>
+            <span style="font-size:48px; color: red;"><i class="fas fa-times-circle"></i></span>
                 }
             </td>
             <td>
@@ -41,5 +41,67 @@
             </td>
         </tr>
 }
+    </tbody>
+</table>*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Location
+            </th>
+            <th>
+                Object Present
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                Timestamp
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Gate 1
+            </td>
+            <td>
+                <span style="font-size:48px; color: green;"><i class="fas fa-check-square"></i></span>
+            </td>
+            <td>
+                <img src="https://baseopsstorage.blob.core.windows.net/truckimages/car_gate1_7_20191203-152607.jpg" width="300" />
+            </td>
+            <td>
+                12/7/2019 9:55:39 PM
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Gate 2
+            </td>
+            <td>
+                <span style="font-size:48px; color: red;"><i class="fas fa-times-circle"></i></span>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Gate 3
+            </td>
+            <td>
+                <span style="font-size:48px; color: green;"><i class="fas fa-check-square"></i></span>
+            </td>
+            <td>
+                <img src="https://baseopsstorage.blob.core.windows.net/truckimages/car_gate1_12_20191203-152609.jpg" width="300" />
+            </td>
+            <td>
+                12/5/2019 7:03:14 AM
+            </td>
+        </tr>
     </tbody>
 </table>

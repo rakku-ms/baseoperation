@@ -1,0 +1,65 @@
+﻿@model BaseOperations.Models.FormResult;
+
+<div class="col s6 m6 l6">
+    <div class="card">
+        <div id="pdfcard" class="card-content" style="">
+            <span class="card-title">Original PDF</span>
+            <embed id="pdfpane" src="@Model.PdfPath" height="400" style="width:100%;" />
+        </div>
+    </div>
+</div>
+<div class="col s6 m6 l6">
+    <div class="card" id="datacard" style="">
+        <div class="card-content">
+            <span class="card-title">Extracted Data</span>
+            <div id="textpane" style="overflow-y:scroll;height:334px;">
+                <div id="form-recognizer-preview">
+                    @foreach(var page in Model.FormResults.Pages)
+                    {
+                    <p>
+                        Key-Value Pairs<br />
+                        @foreach (var kv in page.KeyValuePairs)
+                        {
+                            if (kv.Key.Count > 0)
+                            {
+                                @kv.Key[0].Text;
+                            }
+                            if (kv.Value.Count > 0)
+                            {
+                                @:" - "@kv.Value[0].Text;<br />
+                            }
+                        }
+                        <br />
+                        @foreach (var t in page.Tables)
+                        {
+                            @:Table id: @t.Id<br />
+                            foreach (var c in t.Columns)
+                            {
+                                foreach (var h in c.Header)
+                                {
+                                    @h.Text@:&nbsp;&nbsp;&nbsp;&nbsp;
+                                }
+
+                                foreach (var e in c.Entries)
+                                {
+                                    foreach (var ee in e)
+                                    {
+                                            @ee.Text@:&nbsp;&nbsp;&nbsp;&nbsp;
+                                    }
+                                }
+                               <br/>
+                            }
+                            <br/>
+                        }
+                    </p>
+                    }
+                </div>
+            </div>
+
+        </div>
+        <div class="card-action">
+            <a asp-area="" asp-controller="SupplyManagement" asp-action="Index" class="waves-effect waves-light btn green">Import Data</a>
+            <a asp-area="" asp-controller="SupplyManagement" asp-action="Index" style="left:20px;" class="waves-effect waves-light btn red">Cancel</a>
+        </div>
+    </div>
+</div>

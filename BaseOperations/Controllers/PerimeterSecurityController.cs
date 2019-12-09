@@ -19,7 +19,7 @@ namespace BaseOperations.Controllers
     public class PerimeterSecurityController : Controller
     {
         private readonly BaseContext _context;
-        static string mlEndpoint = "http://127.0.0.1:80/"; // Environment.GetEnvironmentVariable("ml_endpoint");
+        static string mlEndpoint = Environment.GetEnvironmentVariable("ml_endpoint");
 
         private readonly IHttpClientFactory _clientFactory;
 
@@ -44,7 +44,7 @@ namespace BaseOperations.Controllers
             return View();
         }
 
-        public IActionResult ProcessImages()
+        public async Task<IActionResult> ProcessImages()
         {
             string inferenceUrl = mlEndpoint + "url";
 
@@ -53,7 +53,7 @@ namespace BaseOperations.Controllers
 
             events = events.OrderByDescending(e => e.Timestamp);
 
-            /*var client = _clientFactory.CreateClient();
+            var client = _clientFactory.CreateClient();
 
             foreach(Event e in events)
             {
@@ -69,9 +69,9 @@ namespace BaseOperations.Controllers
                 }
             }
 
-            await _context.SaveChangesAsync();*/
+            await _context.SaveChangesAsync();
 
-            return PartialView(events.ToList());
+            return View(events.ToList());
         }
     }
     class InferenceRequest
