@@ -53,25 +53,25 @@ namespace BaseOperations.Controllers
 
             events = events.OrderByDescending(e => e.Timestamp);
 
-            var client = _clientFactory.CreateClient();
+            //var client = _clientFactory.CreateClient();
 
-            foreach(Event e in events)
-            {
-                var response = await client.PostAsync(inferenceUrl, new StringContent(JsonConvert.SerializeObject(new InferenceRequest { url = e.ImageURL })));
-                var parsedResponse = JsonConvert.DeserializeObject<InferenceResponse>(await response.Content.ReadAsStringAsync());
-                if(parsedResponse.predictions.Find(item => item.tagName == "NotMyTruck").probability > parsedResponse.predictions.Find(item => item.tagName == "MyTruck").probability)
-                {
-                    e.ContainsTruck = false;
-                }
-                else
-                {
-                    e.ContainsTruck = true;
-                }
-            }
+            //foreach(Event e in events)
+            //{
+            //    var response = await client.PostAsync(inferenceUrl, new StringContent(JsonConvert.SerializeObject(new InferenceRequest { url = e.ImageURL })));
+            //    var parsedResponse = JsonConvert.DeserializeObject<InferenceResponse>(await response.Content.ReadAsStringAsync());
+            //    if(parsedResponse.predictions.Find(item => item.tagName == "NotMyTruck").probability > parsedResponse.predictions.Find(item => item.tagName == "MyTruck").probability)
+            //    {
+            //        e.ContainsTruck = false;
+            //    }
+            //    else
+            //    {
+            //        e.ContainsTruck = true;
+            //    }
+            //}
 
-            await _context.SaveChangesAsync();
+            //await _context.SaveChangesAsync();
 
-            return View(events.ToList());
+            return PartialView(events.ToList());
         }
     }
     class InferenceRequest
