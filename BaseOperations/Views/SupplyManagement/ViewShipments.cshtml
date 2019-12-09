@@ -34,6 +34,41 @@
         </tr>
     </thead>
     <tbody>
+        @if(Context.Request.Headers["Referer"].ToString().Contains("AddShipment"))
+        {
+        <tr>
+            <td>
+                Miguel Reyes
+            </td>
+            <td>
+                84873
+            </td>
+            <td>
+                Contoso Catering
+            </td>
+            <td>
+                48292
+            </td>
+            <td>
+                897423
+            </td>
+            <td>
+                F41G94JX3N
+            </td>
+            <td>
+                In Transit
+            </td>
+            <td>
+                39MOD33DFE
+            </td>
+            <td>
+                @DateTime.Now.ToString()
+            </td>
+            <td>
+                <a href="https://baseopsstorage.blob.core.windows.net/pdfs/catering.pdf" class="waves-effect waves-light btn blue m-b-xs">View PDF</a>
+            </td>
+        </tr>
+        }
 @foreach (var item in Model) {
         <tr>
             <td>
