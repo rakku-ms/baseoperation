@@ -10,8 +10,7 @@
 
 }
 
-<!-- New build -->
-<!-- Kicking a new build -->
+
 
 @section Scripts{
     <script src="~/plugins/counter-up-master/jquery.counterup.min.js"></script>
@@ -20,7 +19,6 @@
     <script src="~/plugins/curvedlines/curvedLines.js"></script>
     <script src="~/js/pages/ui-carousel.js"></script>
     <script src="~/plugins/peity/jquery.peity.min.js"></script>
-    @*<script src="~/js/pages/dashboard.js"></script>*@
     <script>
 
         function finishTraining() {
@@ -55,7 +53,7 @@
         <div class="col s4">
             <div class="card ">
                 <div class="card-content">
-                    <span class="card-title">GATE 1</span>
+                    <span class="card-title">Location 1</span>
                     <div class="carousel carousel-slider" style="height:400px;">
                         <div class="carousel-fixed-item center with-indicators">
                             <a id="retrain1" class="btn waves-effect white grey-text darken-text-2">Retrain</a>
@@ -71,7 +69,7 @@
         <div class="col s4">
             <div class="card ">
                 <div class="card-content">
-                    <span class="card-title">GATE 2</span>
+                    <span class="card-title">Location 2</span>
                     <div class="carousel carousel-slider center" style="height:400px;" >
                         <div class="carousel-fixed-item center with-indicators">
                             <a id="retrain2" class="btn waves-effect white grey-text darken-text-2">Retrain</a>
@@ -87,7 +85,7 @@
         <div class="col s4">
             <div class="card">
                 <div class="card-content">
-                    <span class="card-title">GATE 3</span>
+                    <span class="card-title">Location 3</span>
                     <div class="carousel carousel-slider center" style="height:400px;">
                         <div class="carousel-fixed-item center with-indicators">
                             <a id="retrain3" class="btn waves-effect white grey-text darken-text-2">Retrain</a>
@@ -116,168 +114,4 @@
 
         </div>
     </div>
-    @*<div class="row no-m-t no-m-b">
-        <div class="col s12 m12 l6">
-            <div class="card invoices-card">
-                <div class="card-content">
-                    <span class="card-title">Pictures Stored for Each Gate</span>
-                    <table class="responsive-table bordered">
-                        <thead>
-                            <tr>
-                                <th data-field="id">ID</th>
-                                <th data-field="number">Pictures captured at Gate</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Gate 1</td>
-                                <td>
-                                    <div class="row">
-                                        <div class="column">
-                                            <a class="waves-effect waves-green"><span onclick="openModal();currentSlide(1)" class="hover-shadow cursor"><i class="material-icons" style="font-size: 40px; color: gray">collections</i></span></a>
-
-                                            <div id="myModal1" class="modal">
-                                                <span class="close cursor" onclick="closeModal()">&times;</span>
-                                                <span class="buttoninmodal"><a class="waves-effect waves-light btn indigo m-b-xs" style="float: right;"  asp-area="" asp-controller="PerimeterSecurity" asp-action="Retraining">Retrain using Picture</a></span>
-                                                <div class="modal-content">
-                                                    <div class="mySlides1">
-                                                        <div class="numbertext">1 / 3</div>
-                                                        <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="250" height="250" class="center">
-                                                    </div>
-
-                                                    <div class="mySlides1">
-                                                        <div class="numbertext">2 / 3</div>
-                                                        <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="250" height="250" class="center">
-                                                    </div>
-
-                                                    <div class="mySlides1">
-                                                        <div class="numbertext">3 / 3</div>
-                                                        <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="250" height="250" class="center">
-                                                    </div>
-                                                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                                                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </td>
-                            </tr>
-
-                                <tr>
-                                    <td>Gate 2</td>
-                                    <td>
-                                    <div class="row">
-                                      <div class="column">
-                                        <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="50" height="50" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-
-                                      <div id="myModal2" class="modal">
-                                      <span class="close cursor" onclick="closeModal()">&times;</span>
-                                      <span class= "buttoninmodal"><a class="waves-effect waves-light btn indigo m-b-xs" style="float: right;" href="gate-security-retrained.html">Retrain using Picture</a></span>
-                                      <div class="modal-content">
-                                        <div class="mySlides2">
-                                          <div class="numbertext">1 / 3</div>
-                                          <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="250" height="250" class="center">
-                                        </div>
-
-                                        <div class="mySlides2">
-                                          <div class="numbertext">2 / 3</div>
-                                          <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="250" height="250" class="center">
-                                        </div>
-
-                                        <div class="mySlides2">
-                                          <div class="numbertext">3 / 3</div>
-                                          <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="250" height="250" class="center">
-                                        </div>
-                                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Gate 3</td>
-                                    <td>
-                                    <div class="row">
-                                      <div class="column">
-                                        <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="50" height="50" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-
-                                      <div id="myModal3" class="modal">
-                                      <span class="close cursor" onclick="closeModal()">&times;</span>
-                                      <span class= "buttoninmodal"><a class="waves-effect waves-light btn indigo m-b-xs" style="float: right;" href="gate-security-retrained.html">Retrain using Picture</a></span>
-                                      <div class="modal-content">
-                                        <div class="mySlides3">
-                                          <div class="numbertext">1 / 3</div>
-                                          <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="250" height="250" class="center">
-                                        </div>
-
-                                        <div class="mySlides3">
-                                          <div class="numbertext">2 / 3</div>
-                                          <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="250" height="250" class="center">
-                                        </div>
-
-                                        <div class="mySlides3">
-                                          <div class="numbertext">3 / 3</div>
-                                          <img src="https://webappdemo.blob.core.windows.net/newcontainer/gallery.png?sp=r&st=2019-12-02T17:30:34Z&se=2020-01-12T01:30:34Z&spr=https&sv=2019-02-02&sr=b&sig=TfOzo6GRqVUWsBh8BS3%2FU8sWXlRMlzOLWeyYnAODoSo%3D" width="250" height="250" class="center">
-                                        </div>
-                                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    </td>
-                                </tr>
-
-                        </tbody>
-                    </table>
-
-                    <script>
-                        for (j = 1; j < 4; j++) {
-                            var x = 'myModal';
-                            var y = 'mySlides';
-                            var modal = x.concat(j);
-                            var slide = y.concat(j);
-
-                            function openModal() {
-                                document.getElementById(modal).style.display = "block";
-                            }
-
-                            function closeModal() {
-                                document.getElementById(modal).style.display = "none";
-                            }
-
-                            var slideIndex = 1;
-                            showSlides(slideIndex);
-
-                            function plusSlides(n) {
-                                showSlides(slideIndex += n);
-                            }
-
-                            function currentSlide(n) {
-                                showSlides(slideIndex = n);
-                            }
-
-                            function showSlides(n) {
-                                var i;
-                                var slides = document.getElementsByClassName(slide);
-                                var dots = document.getElementsByClassName("demo");
-                                var captionText = document.getElementById("caption");
-                                if (n > slides.length) { slideIndex = 1 }
-                                if (n < 1) { slideIndex = slides.length }
-                                for (i = 0; i < slides.length; i++) {
-                                    slides[i].style.display = "none";
-                                }
-                                for (i = 0; i < dots.length; i++) {
-                                    dots[i].className = dots[i].className.replace(" active", "");
-                                }
-                                slides[slideIndex - 1].style.display = "block";
-                                dots[slideIndex - 1].className += " active";
-                                captionText.innerHTML = dots[slideIndex - 1].alt;
-                            }
-                        }
-
-                    </script>
-
-                </div>
-            </div>
-        </div>*@
 </main>

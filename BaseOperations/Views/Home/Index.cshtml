@@ -3,10 +3,87 @@
 }
 @section Styles{
     <style type="text/css">
-        
     </style>
 }
 <!--Comment goes here -->
+
+<main class="mn-inner inner-active-sidebar">
+    <div class="middle-content" style="width: calc(100%-275px);">
+        <div class="row no-m-b">
+            <div class="col s12">
+                <div class="page-title" style="font-size: 16px;">Operational Security</div>
+            </div>
+            <div class="col s7" style="">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Vehicles Entered Monthly<small>Chart.js</small></span>
+                        <div>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s5">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Latest Image - Gate 1<span class="new badge green" data-badge-caption="ONLINE"><small></small></span></span>
+                        <img src="~/images/gate1-1.jpg" style="height:200px;margin:auto;display:block;" class="responsive-img" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row no-m-b">
+            <div class="col s12">
+                <div><span class="page-title" style="font-size: 16px;">Supply Management</span>@*<span> <a class="waves-effect waves-light btn indigo m-b-xs" style="float: right;" href="charts.html">Track Supplies</a></span>*@</div>
+            </div>
+            <div class="col s6" style="" id="first">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Supplies Ordered Monthly</span>
+                        <div>
+                            <canvas id="myChart1"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Supplies Used Last Month<small>Chart.js</small></span>
+                        <div>
+                            <canvas id="myChart2"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inner-sidebar" style="width:275px;">
+        <span class="inner-sidebar-title">Base Personnel</span>
+        <div class="message-list">
+            <div class="info-item message-item"><img class="circle" src="~/images/profile-image-2.png" alt=""><div class="message-info"><div class="message-author">Caleb Foster</div><small>3 hours ago</small></div></div>
+            <div class="info-item message-item"><img class="circle" src="~/images/profile-image.png" alt=""><div class="message-info"><div class="message-author">Michael Peltier</div><small>4 hours ago</small></div></div>
+            <div class="info-item message-item"><img class="circle" src="~/images/profile-image-2.png" alt=""><div class="message-info"><div class="message-author">Aaron Gonzales</div><small>2 days ago</small></div></div>
+        </div>
+        <span class="inner-sidebar-title">Edge Device Sync</span>
+        <div class="stats-info">
+            <ul>
+                <li>TEA 1<div class="percent-info green-text right">32% <i class="material-icons">trending_up</i></div></li>
+                <li>TEA 2<div class="percent-info red-text right">20% <i class="material-icons">trending_down</i></div></li>
+                <li>TEA 3<div class="percent-info green-text right">18% <i class="material-icons">trending_up</i></div></li>
+            </ul>
+        </div>
+        <span class="inner-sidebar-title">Upcoming Events<i class="material-icons">trending_up</i></span>
+        <span class="info-item">Watch Change<span class="new badge">12</span></span>
+        <div class="inner-sidebar-divider"></div>
+        <span class="info-item">VIP Arrival</span>
+        <div class="inner-sidebar-divider"></div>
+        <span class="info-item disabled">No more events scheduled</span>
+        <div class="inner-sidebar-divider"></div>
+        <div class="sidebar-radar-chart"><canvas id="radar-chart" width="340" height="280" style="width: 170px; height: 140px;"></canvas></div>
+    </div>
+</main>
+
 @section Scripts{
     <script>
 
@@ -90,121 +167,3 @@
 
     </script>
 }
-<main class="mn-inner inner-active-sidebar">
-    <div class="middle-content" style="width: calc(100%-275px);">
-        <div class="row no-m-b">
-            <div class="col s12">
-                <div class="page-title" style="font-size: 16px;">Operational Security</div>
-            </div>
-            <div class="col s7" style="">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">Vehicles Entered Monthly<small>Chart.js</small></span>
-                        <div>
-                            <canvas id="myChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col s5">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">Latest Image - Gate 1<span class="new badge green" data-badge-caption="ONLINE"><small></small></span></span>
-                        <img src="~/images/gate1-1.jpg" style="height:316px;margin:auto;display:block;" class="responsive-img" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        @*<div class="row no-m-t no-m-b">
-                <div class="col s12 m12 l4">
-                    <div class="card stats-card">
-                        <div class="card-content">
-                            <div class="card-options">
-                                <ul>
-                                    <li class="red-text"><span class="badge cyan lighten-1">gross</span></li>
-                                </ul>
-                            </div>
-                            <span class="card-title">Sales</span>
-                            <span class="stats-counter">$<span class="counter">48,190</span><small>This week</small></span>
-                        </div>
-                        <div id="sparkline-bar"><canvas width="285" height="40" style="display: inline-block; width: 285px; height: 40px; vertical-align: top;"></canvas></div>
-                    </div>
-                </div>
-                <div class="col s12 m12 l4">
-                    <div class="card stats-card">
-                        <div class="card-content">
-                            <div class="card-options">
-                                <ul>
-                                    <li><a href="javascript:void(0)"><i class="material-icons">more_vert</i></a></li>
-                                </ul>
-                            </div>
-                            <span class="card-title">Page views</span>
-                            <span class="stats-counter"><span class="counter">83,710</span><small>This month</small></span>
-                        </div>
-                        <div id="sparkline-line"><canvas width="314" height="45" style="display: inline-block; width: 314px; height: 45px; vertical-align: top;"></canvas></div>
-                    </div>
-                </div>
-                <div class="col s12 m12 l4">
-                    <div class="card stats-card">
-                        <div class="card-content">
-                            <span class="card-title">Reports</span>
-                            <span class="stats-counter"><span class="counter">23,230</span><small>Last week</small></span>
-                            <div class="percent-info green-text">8% <i class="material-icons">trending_up</i></div>
-                        </div>
-                        <div class="progress stats-card-progress">
-                            <div class="determinate" style="width: 70%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>*@
-        <div class="row no-m-b">
-            <div class="col s12">
-                <div><span class="page-title" style="font-size: 16px;">Supply Management</span>@*<span> <a class="waves-effect waves-light btn indigo m-b-xs" style="float: right;" href="charts.html">Track Supplies</a></span>*@</div>
-            </div>
-            <div class="col s6" style="" id="first">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">Supplies Ordered Monthly</span>
-                        <div>
-                            <canvas id="myChart1"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col s6">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">Supplies Used Last Month<small>Chart.js</small></span>
-                        <div>
-                            <canvas id="myChart2"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="inner-sidebar" style="width:275px;">
-        <span class="inner-sidebar-title">Base Personnel</span>
-        <div class="message-list">
-            <div class="info-item message-item"><img class="circle" src="~/images/profile-image-2.png" alt=""><div class="message-info"><div class="message-author">Caleb Foster</div><small>3 hours ago</small></div></div>
-            <div class="info-item message-item"><img class="circle" src="~/images/profile-image.png" alt=""><div class="message-info"><div class="message-author">Michael Peltier</div><small>4 hours ago</small></div></div>
-            <div class="info-item message-item"><img class="circle" src="~/images/profile-image-2.png" alt=""><div class="message-info"><div class="message-author">Aaron Gonzales</div><small>2 days ago</small></div></div>
-        </div>
-        <span class="inner-sidebar-title">Edge Device Sync</span>
-        <div class="stats-info">
-            <ul>
-                <li>TEA 1<div class="percent-info green-text right">32% <i class="material-icons">trending_up</i></div></li>
-                <li>TEA 2<div class="percent-info red-text right">20% <i class="material-icons">trending_down</i></div></li>
-                <li>TEA 3<div class="percent-info green-text right">18% <i class="material-icons">trending_up</i></div></li>
-            </ul>
-        </div>
-        <span class="inner-sidebar-title">Upcoming Events<i class="material-icons">trending_up</i></span>
-        <span class="info-item">Watch Change<span class="new badge">12</span></span>
-        <div class="inner-sidebar-divider"></div>
-        <span class="info-item">VIP Arrival</span>
-        <div class="inner-sidebar-divider"></div>
-        <span class="info-item disabled">No more events scheduled</span>
-        <div class="inner-sidebar-divider"></div>
-        <div class="sidebar-radar-chart"><canvas id="radar-chart" width="340" height="280" style="width: 170px; height: 140px;"></canvas></div>
-    </div>
-</main>
