@@ -4,21 +4,16 @@
     <script src="~/plugins/chart.js/chart.min.js"></script>
     <script src="~/plugins/curvedlines/curvedLines.js"></script>
     <script src="~/plugins/peity/jquery.peity.min.js"></script>
-    @*<script src="~/js/pages/dashboard.js"></script>*@
     <script src="~/plugins/datatables/js/jquery.dataTables.min.js"></script>
     <script src="~/js/pages/table-data.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#upload').unbind("click").click(function () {
-                //$('#pdfcard').attr('style', 'display: block;');
-                //$('#datacard').attr('style', 'display: block;');
-                 // Get the files
             var file1 = $("#uploadpdf").get(0).files;
 
               var formData = new FormData();
               formData.append("upfile", file1[0]);
-
-          // You can abort the upload by calling jqxhr.abort();    
+  
           $.ajax({
               url: "../SupplyManagement/UploadFile",
               type: "POST",
