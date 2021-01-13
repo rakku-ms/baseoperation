@@ -1,0 +1,36 @@
+name: Sample dotnet web app
+on: [push]
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+  AZURE_WEBAPP_NAME: 'testwebapp2'
+  AZURE_WEBAPP_PACKAGE_PATH: 'SampleWebApp'  # path to web app project, defaults to the repository root
+  AZURE_FUNCTIONAPP_NAME: 'httpsample'
+  AZURE_FUNCTIONS_PACKAGE_PATH: 'SampleFunctionsApp'
+ 
+jobs: 
+  azurestack-test:
+    runs-on: self-hosted
+    steps:
+        
+      - name: App Service Settings Action Against AzureStack with mask-inputs set to false
+        uses: azure/appservice-settings@v1
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          mask-inputs: false
+          general-settings-json: '{"key1": "value1"}'
+          app-settings-json: '[{"name":"1","value":"test","slotSetting":false}]'
+          connection-strings-json: '[{"name":"1","value":"test","slotSetting":false}]'
+
+      - name: Checkout Sample WebApp Repo
+        uses: actions/checkout@v2
+        with:
+          repository: Azure-Samples/app-service-web-dotnet-get-started
+          path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+      
+      - name: WebApp Deploy to AzureStack using publish profile
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          package: "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/aspnet-get-started"
+          publish-profile: ${{ secrets.AZURESTACK_WEBAPP_PUBLISHPROFILE }}
